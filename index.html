@@ -63,12 +63,14 @@
       background-color: white;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       border-radius: 15px;
-      margin: 40px 0;
+      margin: 20px 0; /* Réduire la marge pour les petits écrans */
       overflow: hidden;
+      display: flex;
+      flex-direction: column; /* Pour empiler les images et le contenu */
     }
 
     .feature-content {
-      padding: 30px;
+      padding: 20px; /* Réduire le padding pour les petits écrans */
     }
 
     .feature-content h3 {
@@ -84,20 +86,21 @@
 
     .feature img {
       width: 100%;
-      height: 400px;
+      height: auto; /* Changer à auto pour une meilleure adaptation */
       object-fit: cover;
       object-position: center;
     }
 
     .image-group {
       display: flex;
+      flex-wrap: wrap; /* Pour permettre aux images de se répartir sur plusieurs lignes */
       gap: 15px;
       margin-top: 20px;
     }
 
     .image-group img {
-      width: 100%;
-      height: 200px;
+      width: calc(50% - 15px); /* Ajuster la largeur des images */
+      height: auto; /* Changer à auto pour une meilleure adaptation */
       object-fit: cover;
       object-position: center;
       border-radius: 10px;
@@ -137,6 +140,41 @@
       margin-top: 50px;
     }
 
+    /* Médias queries pour les petits écrans */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5em; /* Réduire la taille du titre */
+      }
+
+      header p {
+        font-size: 1.2em; /* Réduire la taille du sous-titre */
+      }
+
+      section.intro h2 {
+        font-size: 2.2em; /* Réduire la taille du titre de section */
+      }
+
+      section.intro p {
+        font-size: 1.1em; /* Réduire la taille du paragraphe */
+      }
+
+      .feature-content h3 {
+        font-size: 1.8em; /* Réduire la taille du titre de la fonctionnalité */
+      }
+
+      .feature-content p {
+        font-size: 1em; /* Réduire la taille du paragraphe */
+      }
+
+      .cta p {
+        font-size: 1.4em; /* Réduire la taille du texte d'appel à l'action */
+      }
+
+      .cta a {
+        padding: 10px 20px; /* Ajuster le padding du bouton */
+        font-size: 1.2em; /* Réduire la taille du bouton */
+      }
+    }
   </style>
 </head>
 <body>
@@ -187,19 +225,6 @@
         </div>
       </div>
 
-       <!-- Feature 2: Gestion des Clients et Colis (Multiple Images) -->
-       <div class="feature">
-        <div class="feature-content">
-          <h3>Gestion des Clients et des Colis</h3>
-          <p>Ajoutez et gérez facilement vos clients et leurs colis. Chaque envoi est enregistré avec des détails complets
-             pour un suivi optimal des commandes et une gestion fluide de vos relations clients.</p>
-          <div class="image-group">
-            <img src="c_colis_3.png" alt="Expédition">
-            <img src="c_colis_4.png" alt="Expédition">
-          </div>
-        </div>
-      </div>
-
       <!-- Feature 3: Tarification Personnalisée -->
       <div class="feature">
         <img src="c_grille_flexible.png" alt="Tarification Personnalisée">
@@ -228,49 +253,23 @@
         <img src="c_dashbord.png" alt="Tableau de Bord">
         <div class="feature-content">
           <h3>Tableau de Bord et Statistiques</h3>
-          <p>Accédez à un tableau de bord détaillé qui vous permet de suivre les revenus, les dépenses, et le nombre 
-             d’expéditions réalisées chaque mois. Visualisez l’évolution de votre activité en un coup d'œil.</p>
+          <p>Consultez les performances de votre activité grâce à un tableau de bord intuitif. Visualisez vos statistiques 
+             d'expédition, suivez les tendances et améliorez votre stratégie.</p>
         </div>
       </div>
-
-      <!-- Feature 6: Suivi des Dépenses -->
-      <div class="feature">
-        <img src="c_depenses.png" alt="Tableau de Bord">
-        <div class="feature-content">
-          <h3>Suivi des Dépenses</h3>
-          <p>Suivez les dépenses liées à chaque expédition. Notez les coûts spécifiques pour chaque transport afin d'optimiser 
-             la gestion financière de vos activités logistiques.</p>
-        </div>
-      </div>
-
-      <div class="feature">
-        <div class="image-group">
-        <img src="c_remise_colis_1.png" alt="Tableau de Bord">
-        <img src="c_remise_colis_2.png" alt="Tableau de Bord">
-      </div>
-        <div class="feature-content">
-          <h3>Remise des colis</h3>
-          <p> Grâce à ExpéditionPro, la remise des colis devient simple et rapide. Une fois le colis prêt à être livré, vous pouvez 
-            facilement planifier la remise en quelques clics. Il vous suffit de sélectionner le client et de valider que vous souhaitez lui remettre le colis et le tour est joué.</p>
-        </div>
-      </div>
-
+      
     </section>
 
     <!-- Call to Action Section -->
     <div class="cta">
-      <p>Envie d'en savoir plus ?</p>
-      <a href="https://wa.me/+22378550131?text=Bonjour,%20je%20souhaite%20en%20savoir%20plus%20sur%20votre%20application%20de%20gestion%20d'expéditions." target="_blank">
-        Cliquez ici pour me joindre sur WhatsApp 
-      </a>
+      <p>Prêt à révolutionner la gestion de vos expéditions ?</p>
+      <a href="#">Commencez dès maintenant !</a>
     </div>
-    
 
     <!-- Footer Section -->
     <footer>
-      <p>&copy; 2024 Cheickna Barro - ExpéditionPro</p>
+      <p>&copy; 2024 Cheickna Barro. Tous droits réservés.</p>
     </footer>
-    
   </div>
 
 </body>
