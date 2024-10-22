@@ -63,14 +63,12 @@
       background-color: white;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       border-radius: 15px;
-      margin: 20px 0; /* Réduire la marge pour les petits écrans */
+      margin: 40px 0;
       overflow: hidden;
-      display: flex;
-      flex-direction: column; /* Pour empiler les images et le contenu */
     }
 
     .feature-content {
-      padding: 20px; /* Réduire le padding pour les petits écrans */
+      padding: 30px;
     }
 
     .feature-content h3 {
@@ -85,25 +83,39 @@
     }
 
     .feature img {
-      width: 100%;
-      height: auto; /* Changer à auto pour une meilleure adaptation */
-      object-fit: cover;
-      object-position: center;
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
     .image-group {
-      display: flex;
-      flex-wrap: wrap; /* Pour permettre aux images de se répartir sur plusieurs lignes */
-      gap: 15px;
-      margin-top: 20px;
+      max-height: 400px;
+      overflow-y: scroll;
     }
 
     .image-group img {
-      width: calc(50% - 15px); /* Ajuster la largeur des images */
-      height: auto; /* Changer à auto pour une meilleure adaptation */
+      width: calc(33.33% - 10px); /* Affichage de trois images par ligne sur les écrans larges */
+      height: 250px; /* Hauteur augmentée pour une meilleure clarté */
       object-fit: cover;
       object-position: center;
       border-radius: 10px;
+      transition: transform 0.3s; /* Animation de zoom */
+      cursor: pointer; /* Pointeur de souris pour l'interaction */
+      margin: 5px; /* Ajout d'un petit espace entre les images */
+    }
+
+    .image-group img:hover {
+      transform: scale(1.1); /* Effet de zoom au survol */
+    }
+
+    /* Médias queries pour les petits écrans */
+    @media (max-width: 768px) {
+      .image-group img {
+        width: 100%; /* Affiche une image par ligne sur les téléphones */
+        height: auto; /* Ajustement de la hauteur sur petits écrans */
+      }
     }
 
     .cta {
@@ -140,41 +152,45 @@
       margin-top: 50px;
     }
 
-    /* Médias queries pour les petits écrans */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.5em; /* Réduire la taille du titre */
-      }
-
-      header p {
-        font-size: 1.2em; /* Réduire la taille du sous-titre */
-      }
-
-      section.intro h2 {
-        font-size: 2.2em; /* Réduire la taille du titre de section */
-      }
-
-      section.intro p {
-        font-size: 1.1em; /* Réduire la taille du paragraphe */
-      }
-
-      .feature-content h3 {
-        font-size: 1.8em; /* Réduire la taille du titre de la fonctionnalité */
-      }
-
-      .feature-content p {
-        font-size: 1em; /* Réduire la taille du paragraphe */
-      }
-
-      .cta p {
-        font-size: 1.4em; /* Réduire la taille du texte d'appel à l'action */
-      }
-
-      .cta a {
-        padding: 10px 20px; /* Ajuster le padding du bouton */
-        font-size: 1.2em; /* Réduire la taille du bouton */
-      }
+    /* Style de la modale */
+    .modal {
+      display: none; /* Caché par défaut */
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8); /* Fond semi-transparent */
+      justify-content: center; /* Centrage horizontal */
+      align-items: center; /* Centrage vertical */
     }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
   </style>
 </head>
 <body>
@@ -199,7 +215,7 @@
 
     <!-- Features Section -->
     <section class="features">
-      
+
       <!-- Feature 1: Planification des Expéditions -->
       <div class="feature">
         <img src="c_planification.png" alt="Planification des Expéditions">
@@ -217,10 +233,10 @@
           <p>Ajoutez et gérez facilement vos clients et leurs colis. Chaque envoi est enregistré avec des détails complets
              pour un suivi optimal des commandes et une gestion fluide de vos relations clients.</p>
           <div class="image-group">
-            <img src="c_clients.png" alt="Client">
-            <img src="c_colis_1.png" alt="Colis">
-            <img src="C_colis_3.png" alt="Expédition">
-            <img src="c_colis_4.png" alt="Expédition">
+            <img src="c_clients.png" alt="Client" onclick="openModal(this.src)">
+            <img src="c_colis_1.png" alt="Colis" onclick="openModal(this.src)">
+            <img src="C_colis_3.png" alt="Expédition" onclick="openModal(this.src)">
+            <img src="c_colis_4.png" alt="Expédition" onclick="openModal(this.src)">
           </div>
         </div>
       </div>
@@ -230,20 +246,20 @@
         <img src="c_grille_flexible.png" alt="Tarification Personnalisée">
         <div class="feature-content">
           <h3>Tarification Personnalisée</h3>
-          <p>Définissez vos frais d'expédition en utilisant notre grille tarifaire ou en ajustant les prix selon les besoins 
-             spécifiques de chaque client. Flexibilité totale pour répondre à chaque situation.</p>
+          <p>Offrez des options de tarification flexibles avec des grilles standard ou des tarifs personnalisés selon les 
+             besoins de vos clients. Une solution adaptable à chaque situation.</p>
         </div>
       </div>
 
-      <!-- Feature 4: Suivi en Temps Réel -->
+      <!-- Feature 4: Suivi des Colis -->
       <div class="feature">
+        <img src="c_suivi_colis_1.png" alt="Suivi des Colis">
         <div class="feature-content">
-          <h3>Suivi en Temps Réel</h3>
-          <p>Permettez à vos clients de suivre leur colis en temps réel. Un lien leur est envoyé via WhatsApp dès la validation 
-             de leur commande pour une transparence totale.</p>
+          <h3>Suivi des Colis</h3>
+          <p>Permettez à vos clients de suivre leurs colis en temps réel grâce à un système de notification instantané. 
+             Ne laissez plus vos clients dans le flou concernant leurs envois !</p>
           <div class="image-group">
-            <img src="c_suivi_colis_1.png" alt="Suivi Colis">
-            <img src="c_suivi_2.png" alt="Notifications WhatsApp">
+            <img src="c_suivi_2.png" alt="Suivi Colis" onclick="openModal(this.src)">
           </div>
         </div>
       </div>
@@ -257,20 +273,41 @@
              d'expédition, suivez les tendances et améliorez votre stratégie.</p>
         </div>
       </div>
-      
+
     </section>
 
     <!-- Call to Action Section -->
     <div class="cta">
-      <p>Prêt à révolutionner la gestion de vos expéditions ?</p>
-      <a href="#">Commencez dès maintenant !</a>
+      <p>Prêt à améliorer votre gestion des expéditions ?</p>
+      <a href="#">Commencez Maintenant</a>
     </div>
 
     <!-- Footer Section -->
     <footer>
-      <p>&copy; 2024 Cheickna Barro. Tous droits réservés.</p>
+      <p>&copy; 2024 ExpéditionPro. Tous droits réservés.</p>
     </footer>
+
   </div>
+
+  <!-- Modal pour afficher les images en grand -->
+  <div id="myModal" class="modal" onclick="closeModal()">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+  </div>
+
+  <script>
+    function openModal(src) {
+      const modal = document.getElementById("myModal");
+      const modalImg = document.getElementById("img01");
+      modal.style.display = "flex"; // Affiche la modale
+      modalImg.src = src; // Met à jour la source de l'image
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("myModal");
+      modal.style.display = "none"; // Cache la modale
+    }
+  </script>
 
 </body>
 </html>
