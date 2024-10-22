@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogue - Gestion des Expéditions</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Helvetica', sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      background: linear-gradient(90deg, #007bff, #00ccff);
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3.2em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.4em;
+    }
+
+    section.intro {
+      margin-top: 50px;
+      text-align: center;
+      color: #007bff;
+    }
+
+    section.intro h2 {
+      font-size: 2.8em;
+    }
+
+    section.intro p {
+      margin-top: 15px;
+      font-size: 1.3em;
+      width: 85%;
+      margin-left: auto;
+      margin-right: auto;
+      color: #444;
+    }
+
+    .feature {
+      background-color: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      margin: 40px 0;
+      overflow: hidden;
+    }
+
+    .feature-content {
+      padding: 30px;
+    }
+
+    .feature-content h3 {
+      font-size: 2em;
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+
+    .feature-content p {
+      font-size: 1.2em;
+      color: #555;
+    }
+
+    .feature img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .image-group {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .image-group img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 10px;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .cta p {
+      font-size: 1.6em;
+      color: #333;
+    }
+
+    .cta a {
+      display: inline-block;
+      margin-top: 25px;
+      background-color: #007bff;
+      color: white;
+      padding: 15px 40px;
+      text-decoration: none;
+      font-size: 1.4em;
+      border-radius: 50px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta a:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #0056b3;
+      color: white;
+      margin-top: 50px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Header Section -->
+    <header>
+      <h1>ExpéditionPro</h1>
+      <p>Simplifiez la gestion de vos expéditions avec une application intuitive et performante</p>
+    </header>
+
+    <!-- Introduction Section -->
+    <section class="intro">
+      <h2>Présentation de l'Application</h2>
+      <p>
+        Optimisez la gestion de vos livraisons grâce à une solution complète. Gérez les expéditions, suivez vos colis, et
+        offrez à vos clients une transparence totale avec des mises à jour en temps réel. Notre solution s’adapte à tous
+        vos besoins.
+      </p>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      
+      <!-- Feature 1: Planification des Expéditions -->
+      <div class="feature">
+        <img src="./c_planification.png" alt="Planification des Expéditions">
+        <div class="feature-content">
+          <h3>Planification des Expéditions</h3>
+          <p>Planifiez les expéditions avec précision. Assignez un chauffeur, sélectionnez un camion et fixez une date 
+             d'expédition. Tout se fait en quelques clics pour une meilleure organisation de votre logistique.</p>
+        </div>
+      </div>
+
+      <!-- Feature 2: Gestion des Clients et Colis (Multiple Images) -->
+      <div class="feature">
+        <div class="feature-content">
+          <h3>Gestion des Clients et des Colis</h3>
+          <p>Ajoutez et gérez facilement vos clients et leurs colis. Chaque envoi est enregistré avec des détails complets
+             pour un suivi optimal des commandes et une gestion fluide de vos relations clients.</p>
+          <div class="image-group">
+            <img src="./c_clients.png" alt="Client">
+            <img src="./c_colis_1.png" alt="Colis">
+            <img src="./c_colis_3.png" alt="Expédition">
+            <img src="./c_colis_4.png" alt="Expédition">
+          </div>
+        </div>
+      </div>
+
+       <!-- Feature 2: Gestion des Clients et Colis (Multiple Images) -->
+       <div class="feature">
+        <div class="feature-content">
+          <h3>Gestion des Clients et des Colis</h3>
+          <p>Ajoutez et gérez facilement vos clients et leurs colis. Chaque envoi est enregistré avec des détails complets
+             pour un suivi optimal des commandes et une gestion fluide de vos relations clients.</p>
+          <div class="image-group">
+            <img src="./c_colis_3.png" alt="Expédition">
+            <img src="./c_colis_4.png" alt="Expédition">
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 3: Tarification Personnalisée -->
+      <div class="feature">
+        <img src="./c_grille_flexible.png" alt="Tarification Personnalisée">
+        <div class="feature-content">
+          <h3>Tarification Personnalisée</h3>
+          <p>Définissez vos frais d'expédition en utilisant notre grille tarifaire ou en ajustant les prix selon les besoins 
+             spécifiques de chaque client. Flexibilité totale pour répondre à chaque situation.</p>
+        </div>
+      </div>
+
+      <!-- Feature 4: Suivi en Temps Réel -->
+      <div class="feature">
+        <div class="feature-content">
+          <h3>Suivi en Temps Réel</h3>
+          <p>Permettez à vos clients de suivre leur colis en temps réel. Un lien leur est envoyé via WhatsApp dès la validation 
+             de leur commande pour une transparence totale.</p>
+          <div class="image-group">
+            <img src="./c_suivi_colis_1.png" alt="Suivi Colis">
+            <img src="./c_suivi_2.png" alt="Notifications WhatsApp">
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 5: Tableau de Bord et Statistiques -->
+      <div class="feature">
+        <img src="./c_dashbord.png" alt="Tableau de Bord">
+        <div class="feature-content">
+          <h3>Tableau de Bord et Statistiques</h3>
+          <p>Accédez à un tableau de bord détaillé qui vous permet de suivre les revenus, les dépenses, et le nombre 
+             d’expéditions réalisées chaque mois. Visualisez l’évolution de votre activité en un coup d'œil.</p>
+        </div>
+      </div>
+
+      <!-- Feature 6: Suivi des Dépenses -->
+      <div class="feature">
+        <img src="./c_depenses.png" alt="Tableau de Bord">
+        <div class="feature-content">
+          <h3>Suivi des Dépenses</h3>
+          <p>Suivez les dépenses liées à chaque expédition. Notez les coûts spécifiques pour chaque transport afin d'optimiser 
+             la gestion financière de vos activités logistiques.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="image-group">
+        <img src="./c_remise_colis_1.png" alt="Tableau de Bord">
+        <img src="./c_remise_colis_2.png" alt="Tableau de Bord">
+      </div>
+        <div class="feature-content">
+          <h3>Remise des colis</h3>
+          <p> Grâce à ExpéditionPro, la remise des colis devient simple et rapide. Une fois le colis prêt à être livré, vous pouvez 
+            facilement planifier la remise en quelques clics. Il vous suffit de sélectionner le client et de valider que vous souhaitez lui remettre le colis et le tour est joué.</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Call to Action Section -->
+    <div class="cta">
+      <p>Envie d'en savoir plus ?</p>
+      <a href="https://wa.me/+22378550131?text=Bonjour,%20je%20souhaite%20en%20savoir%20plus%20sur%20votre%20application%20de%20gestion%20d'expéditions." target="_blank">
+        Cliquez ici pour me joindre sur WhatsApp 
+      </a>
+    </div>
+    
+
+    <!-- Footer Section -->
+    <footer>
+      <p>&copy; 2024 Cheickna Barro - ExpéditionPro</p>
+    </footer>
+    
+  </div>
+
+</body>
+</html>
